@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lilly Phan — Portfolio</title>
+<meta name="description" content="Lilly Phan">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='19' r='10' fill='%23ec4899'/%3E%3Crect x='19' y='4' width='3' height='7' rx='1.5' transform='rotate(40 19 4)' fill='%233a2436'/%3E%3Ccircle cx='24' cy='6' r='3' fill='%23fb7185'/%3E%3Cpath d='M11 14 L14 11' stroke='%23ffe3ee' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Lilly Phan</h1>
+      <p class="tagline">Computer Science student &amp; Boettcher Scholar &amp; builder of silly things.</p>
+    </div>
+    <div class="hero-links">
+      <a href="mailto:lilly_phan@mines.edu">Email</a>
+      <a href="https://github.com/lillyphan" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/lillyqsphan" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <details class="instructions">
+      <summary>How this works</summary>
+      <p>
+        This is my resume, but I am a diehard Minesweeper player and like interesting things, so I present: a Minesweeper resume! Click a tile to reveal it — clearing a zero opens a whole section, just like the real game. Right-click (or long-press on mobile) to flag a tile you suspect is a mine. Find all 5 sections to sweep the board.
+      </p>
+    </details>
+    <button id="view-toggle" class="toggle-btn" type="button">Just show me the plain resume</button>
+  </div>
+</header>
+
+<main>
+  <!-- GAME VIEW -->
+  <section id="game-view" aria-label="Interactive Minesweeper portfolio board">
+    <div class="hud">
+      <div class="hud-item" id="mine-counter" title="Mines remaining"><svg class="icon-bomb" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="7" fill="currentColor"/><rect x="14.5" y="3" width="2.4" height="5.5" rx="1.2" transform="rotate(40 14.5 3)" fill="currentColor"/><circle cx="18.5" cy="5" r="2.1" fill="currentColor"/><path d="M8.5 11 L10.7 8.8" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg> <span>--</span></div>
+      <div class="hud-item" id="progress-counter" title="Portfolio sections discovered"><span>0</span> / <span id="section-total">5</span> sections found</div>
+      <button id="reveal-btn" class="hud-btn hud-btn-ghost" type="button" title="Skip the game and reveal the whole board, sections included">Reveal board</button>
+      <button id="reset-btn" class="hud-btn" type="button" title="Start a brand new board (all sections re-hide)">New board</button>
+    </div>
+    <div id="board-wrap">
+      <div id="board" role="grid" aria-label="Minesweeper board"></div>
+    </div>
+    <p class="hint" id="toast" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- PLAIN RESUME VIEW (hidden by default, toggled via button; also present for no-JS / accessibility / SEO) -->
+  <section id="resume-view" class="hidden" aria-label="Plain text resume">
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p class="fill-me-in">I’m a third year Computer Science student at Colorado School of Mines and a Boettcher Scholar. Whether I’m building software, teaching, or conducting research, I’m drawn to projects where technical problem-solving leads to clear, real-world impact.</p>
+      <p class="fill-me-in">At Mines, my background spans software engineering, algorithms, AI, and data science. As an undergraduate researcher, I study online support communities using NLP and data science to analyze how people seek and offer help. I also work as an Algorithms and Physics TA, which has been a great way to help students break down difficult concepts and approach problems from new angles. On the development side, I’ve built everything from AI-driven applications to C++ video games.</p>
+      <p class="fill-me-in">Right now, I’m currently looking for a Software Engineering Internship for Summer 2027 where I can contribute to meaningful engineering projects, learn from a team, and build practical tools that make a difference. Outside of class and lab work, you can find me making 2D games, sewing, reading, volunteering with the Foothills Art Center, and mentoring through the Society of Women Engineers. Feel free to connect!</p>
+    </div>
+
+    <article>
+      <div class="reveal-on-scroll">
+        <h2>Education</h2>
+        <div class="resume-entry">
+          <h3>Colorado School of Mines — B.S. Computer Science</h3>
+          <p class="meta">Golden, CO · Expected May 2028</p>
+          <p>Cumulative GPA: 4.00/4.00 · Dean's List Honors, Fall 2024 – Spring 2026</p>
+          <p><strong>Relevant coursework:</strong> Advanced Software Engineering, Programming Languages, Algorithms, Artificial Intelligence, Database Management, Systems Programming, Data Structures and Algorithms, Computer Organization, Game Development.</p>
+        </div>
+      </div>
+
+      <div class="reveal-on-scroll">
+        <h2>Skills</h2>
+        <div class="resume-entry">
+          <p><strong>Languages:</strong> C++, Python, Java, SQL, JavaScript, OCaml, Bash, HTML/CSS</p>
+          <p><strong>Tools:</strong> PostgreSQL, MongoDB, GitHub, PyTorch, Snorkel, Tkinter, raylib, LLM Studio, BERTopic</p>
+          <p><strong>Concepts:</strong> Algorithms, Data Structures, Machine Learning, NLP, Object-Oriented Programming, Agile/Scrum</p>
+        </div>
+      </div>
+
+      <div class="reveal-on-scroll">
+        <h2>Employment &amp; Research Experience</h2>
+
+        <div class="resume-entry">
+          <h3>Colorado School of Mines — CSCI406 Algorithms, Teaching Assistant</h3>
+          <p class="meta">Golden, CO · Aug 2026 – Present</p>
+          <ul>
+            <li>Hold weekly office hours, clarifying core algorithmic concepts and tailoring explanations to each student's level of understanding.</li>
+            <li>Conduct oral, midterm-style grading interviews that evaluate depth of algorithmic understanding beyond what written exams capture.</li>
+            <li>Grade weekly homework assignments and provide constructive feedback to help students close problem-solving gaps.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>The Challenge Foundation — Math Teacher</h3>
+          <p class="meta">Englewood, CO · June 2026 – July 2026</p>
+          <ul>
+            <li>Designed a full 5-week math curriculum from scratch for incoming 6th and 7th grade students, including daily lesson plans, pre-assessments, and capstone activities aligned to Khan Academy.</li>
+            <li>Developed and iteratively refined worksheets, homework, and station activities based on real-time student feedback.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>Colorado School of Mines — #HappyPlace Lab, Undergraduate Researcher (SURF Fellow)</h3>
+          <p class="meta">May 2026 – Present</p>
+          <ul>
+            <li>Research the computational detection of spiritual care narratives in online communities by building an NLP pipeline with weak supervision (Snorkel), fine-tuned transformer models, and Python/MongoDB to label Reddit posts and replies for empathy, self-disclosure, and support-seeking behavior.</li>
+            <li>Conduct structured literature reviews synthesizing frameworks across peer support, self-disclosure, meaning-making, and narrative identity to inform co-authored publications.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>Colorado School of Mines — PHGN200 E&amp;M Physics, Teaching Assistant</h3>
+          <p class="meta">Golden, CO · Aug 2025 – Present</p>
+          <ul>
+            <li>Hold weekly help hours to provide individualized guidance, clarify concepts, and support students in problem-solving.</li>
+            <li>Collaborate with fellow TAs during physics studios to answer questions and assist students in setting up and running labs.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>Private Employer — Personal Assistant</h3>
+          <p class="meta">Denver, CO · March 2025 – Present</p>
+          <ul>
+            <li>Designed and maintained organizational systems for scheduling, communications, and task tracking, reducing coordination overhead and improving day-to-day efficiency.</li>
+            <li>Applied structured, analytical problem-solving to manage competing priorities under time constraints, including building comparative option analyses to support faster decision-making.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reveal-on-scroll">
+        <h2>Projects</h2>
+
+        <div class="resume-entry">
+          <h3>Minesweeper AI &amp; Analytics Platform</h3>
+          <p class="meta">Python/Tkinter, PostgreSQL</p>
+          <!-- Drop a screenshot/gif at assets/images/minesweeper-project.gif to show it here. -->
+          <img class="project-shot" src="assets/images/minesweeper-project.gif" alt="Minesweeper AI & Analytics Platform — live app with AI confidence overlay and model statistics"
+               onerror="this.setAttribute('data-missing','');" />
+          <ul>
+            <li>Built a Minesweeper game with a live AI confidence overlay powered by several trained neural network models, an autoplay bot, and a model selector.</li>
+            <li>Designed a PostgreSQL backend that tracks model performance over time using CTEs for stratified sampling, window functions for a model leaderboard, and WIDTH_BUCKET for density analysis.</li>
+            <li>Built a live stats panel refreshing every 5 seconds to display win rate, accuracy, and combined model rankings.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>De-Bug — 1st Place, BlasterHacks (60+ participants)</h3>
+          <p class="meta">C++, raylib</p>
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/k2cu-zIfALg?rel=0&modestbranding=1"
+              title="De-Bug gameplay"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <a class="video-fallback" href="https://www.youtube.com/watch?v=k2cu-zIfALg" target="_blank" rel="noopener">▶ If the video above doesn't load, watch it on YouTube</a>
+          <ul>
+            <li>Built a 3D platformer/puzzle game entirely from scratch in C++, including a custom physics engine (collision detection, gravity, movement) and game engine, rather than relying on a pre-built framework.</li>
+            <li>Served as tech lead for game logic and system architecture — designing an event bus, puzzle engine, data-driven level loader that generates platforms and interactions from structured text files, and an in-game computer terminal used to gate level progression.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3>Clue</h3>
+          <p class="meta">Java</p>
+          <img class="project-shot" src="assets/images/clue-project.png" alt="Clue gameplay — Barbie-themed board with the Known Cards panel and welcome dialog"
+               onerror="this.setAttribute('data-missing','');" />
+          <ul>
+            <li>Built a full-stack Java implementation of Clue that reads in custom maps and player configurations and manages the complete game.</li>
+            <li>Designed autonomous, intelligent AI opponents with suggestion and accusation logic that reason over available game information.</li>
+            <li>Built the board rendering, game control panel, and interactive suggestion dialog from scratch using Java Swing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reveal-on-scroll">
+        <h2>Activities &amp; Awards</h2>
+
+        <div class="resume-entry">
+          <h3>Society of Women Engineers — Peer Mentor / General Member</h3>
+          <p class="meta">Golden, CO · Aug 2024 – Present</p>
+          <ul>
+            <li>Mentor underclassmen on academics, courses, technical skills, and personal development, supporting overall growth and success.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <h3><a href="https://boettcherfoundation.org/boettcher-foundation-honors-outstanding-colorado-students/" target="_blank" rel="noopener">Boettcher Scholarship</a></h3>
+          <p class="meta">May 2024</p>
+          <ul>
+            <li>Chosen as one of 50 students selected for a four-year full-ride merit scholarship out of more than 1,900 applicants.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <noscript>
+    <style>#game-view{display:none}#resume-view{display:block !important}#view-toggle{display:none}</style>
+  </noscript>
+</main>
+
+<footer>
+  <p>Lilly Phan · <a href="https://github.com/lillyphan" target="_blank" rel="noopener">source on GitHub</a></p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
